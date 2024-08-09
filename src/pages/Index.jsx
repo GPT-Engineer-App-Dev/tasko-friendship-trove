@@ -8,6 +8,7 @@ import { X } from "lucide-react";
 const Index = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
+  const currentYear = new Date().getFullYear();
 
   const addTodo = () => {
     if (newTodo.trim() !== "") {
@@ -29,12 +30,13 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">Todo App</CardTitle>
-        </CardHeader>
-        <CardContent>
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-grow flex items-center justify-center bg-gray-100">
+        <Card className="w-full max-w-md">
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold text-center">Todo App</CardTitle>
+          </CardHeader>
+          <CardContent>
           <div className="flex space-x-2 mb-4">
             <Input
               type="text"
@@ -70,8 +72,12 @@ const Index = () => {
               </li>
             ))}
           </ul>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </div>
+      <footer className="bg-purple-500 text-white py-4 text-center">
+        <p>&copy; {currentYear} Todo App. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
